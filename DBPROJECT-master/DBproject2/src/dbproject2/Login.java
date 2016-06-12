@@ -55,7 +55,6 @@ public class Login extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTextField1.setText("Username");
         jTextField1.setToolTipText("UserName");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,7 +62,6 @@ public class Login extends javax.swing.JDialog {
             }
         });
 
-        jPasswordField1.setText("Passward");
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -89,8 +87,6 @@ public class Login extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/ShellyCheng/Desktop/Joline.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

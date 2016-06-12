@@ -44,6 +44,11 @@ public class Order_Customer extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Customer_NUMBER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Customer_NUMBERMouseClicked(evt);
+            }
+        });
         Customer_NUMBER.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Customer_NUMBERActionPerformed(evt);
@@ -105,8 +110,7 @@ public class Order_Customer extends javax.swing.JFrame {
                                     .addComponent(Customer_NUMBER, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addComponent(GO_TO_DRINK, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)))
+                        .addComponent(GO_TO_DRINK, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -172,6 +176,28 @@ public class Order_Customer extends javax.swing.JFrame {
        Order_Drink od = new Order_Drink();
        od.show();
     }//GEN-LAST:event_GO_TO_DRINKActionPerformed
+
+    private void Customer_NUMBERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Customer_NUMBERMouseClicked
+         try{
+        String url = "jdbc:mysql://localhost:3306/dbproject2";
+        Connection con =  DriverManager.getConnection(url, "root", "");
+        Statement stat = con.createStatement();
+
+        String Query = "SELECT * FROM id ";
+        ResultSet rs = stat.executeQuery(Query);
+        if(rs.next()){
+        int i =Integer.parseInt(rs.getString(1));
+        int d=i+1;
+        Customer_NUMBER.setText(Integer.toString(d));
+        String UPDATE = "UPDATE id SET ID = '"+ Integer.toString(d) +"' WHERE ID = '"+ Integer.toString(i) +"'";
+        stat.execute(Query);
+        stat.execute(UPDATE);
+         }
+         }
+         catch(SQLException e){
+             JOptionPane.showMessageDialog(null,e.toString());
+         }
+    }//GEN-LAST:event_Customer_NUMBERMouseClicked
 
     /**
      * @param args the command line arguments
